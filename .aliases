@@ -1,0 +1,169 @@
+# Unix
+export VISUAL=nvim
+alias tlf='tail -f'
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias l='ls'
+alias ll='ls -al'
+alias lh='ls -Alh'
+# alias -g G='| grep'
+# alias -g M='| less'
+# alias -g L='| wc -l'
+# alias -g ONE= "| awk '{ print \$1}'"
+alias e="$EDITOR"
+alias v="$VISUAL"
+alias vi="$VISUAL"
+alias grep="grep --color=auto"
+#
+# Directories
+#
+alias space='ncdu'
+alias space-color='cdu'
+alias ll='ls -l'
+alias la='ls -ltra'
+alias l='ls'
+alias C='clear'
+alias se='sudo vim'
+alias e='vim'
+alias home='cd ~'
+alias ..='cd ..'
+alias ...='cd ...'
+alias ....='cd ....'
+alias .....='cd .....'
+alias k='exit'
+alias te='trash-empty'
+alias tl='trash-list'
+alias del='trash-put'
+alias tr='trash-rm'
+alias lsTrash='ls ~/.local/share/Trash/files/'
+alias cdTrash='cd ~/.local/share/Trash/files/'
+alias lD='ls ~/Downloads'
+alias D='cd ~/Downloads'
+#
+# GIT
+#
+alias gitgraph="git log --graph --simplify-by-decoration --pretty=format:'%d' --all"
+#
+# Docker/Kubernetes
+#
+# function __docker-shell { docker exec -it $1 bash }
+# alias docker-shell='__docker-shell'
+# alias docker-clean-untagged="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
+# alias docker-clean-untagged='docker images | grep '\''<none>'\'' | grep -P '\'' [1234567890abcdef] { 12 } '\'' -o | xargs -L1 docker rmi '
+alias docker-kill-all-containers='docker ps -a | grep -v CONTAINER | awk '\'' { print $1 } '\'' | xargs docker kill '
+alias docker-remove-all-containers='docker ps -a | grep -v CONTAINER | awk '\'' { print $1 } '\'' | xargs docker rm '
+# alias docker-remove-all-images='docker rmi $(docker images -q)'
+alias kubedashtoken='kubectl get secrets -n kube-system | grep default-token | cut -d " " -f 1 | xargs kubectl get secrets -n kube-system -o yaml | grep "token:" | cut -d " " -f 4 | base64 -D && echo ""'
+alias kc=kubectl
+#
+#
+#
+alias eshealth="curl 'localhost:9200/_cat/health?v'"
+alias esnodes="curl 'localhost:9200/_cat/nodes?v'"
+alias esindices="curl 'localhost:9200/_cat/indices?v'"
+#
+# GO Lang
+#
+alias setgopath='export GOPATH=`pwd`'
+alias lsgodeps="go list -f '{{join .Deps \"\n\"}}' | xargs go list -f '{{if not .Standard}}{{.ImportPath}}{{end}}' "
+#
+# Network
+#
+alias dumpmongo="sudo tcpdump -nnXSs 0 ' port 27017 '"
+#alias linkstatus="awk ' { split(FILENAME, array, "/"); print array[5] ": " $1 } ' $(find /sys/class/net/*/operstate ! -type d)"
+#alias wifistrength="awk ' NR == 3 { print\ "WiFi Signal Strength=\" \$3 \"00 %\"}''' /proc/net/wireless"
+alias ngrep="sudo ngrep -l -q -d eth0 \"^GET |^POST \" tcp and port 80"
+alias ports='netstat -tulanp'
+#
+# iptables
+#
+alias ipt='sudo /sbin/iptables'
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+alias firewall=iptlist
+#
+# Debian / Ubuntu
+#
+alias apt-get='sudo apt-get'
+alias updatey='sudo apt-get --yes'
+alias update='sudo apt-get update && sudo apt-get upgrade'
+#
+# Term Scripts
+#
+alias colordump=~/bin/colordump.sh
+#
+# Transmission
+#
+alias IP-update='~/bin/blocklist.sh'
+alias tsm-check='dwb http://localhost:9091/transmission/web'
+alias t='transmission-daemon && transmission-remote-cli'
+alias kT='killall transmission-daemon'
+#
+# Google Calendar
+#
+#alias gcal-week='gcalcli --width 12 calw'
+#alias gcal='gcalcli --width 12 calm'
+#alias gcal-add='gcalcli quick'
+#alias gcal-agenda='gcalcli agenda'
+#
+# Productivity
+#
+alias todo='$EDITOR ~/.todo'
+alias httpserve='python -m SimpleHTTPServer'
+alias filemgr='nautilus --no-desktop'
+alias vimgo='nvim -u ~/.vimrc.go'
+alias weather='curl http://wttr.in/RALEIGH,NC'
+#
+# News and Music
+#
+alias news='newsbeuter'
+alias irc='weechat-curses'
+#
+# TMUX Powerline config
+#
+# for weather location
+# https: //weather.yahoo.com/united-states/north-carolina/raleigh-2478307/
+#
+export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2478307"
+export TMUX_POWERLINE_SEG_WEATHER_UNIT_DEFAULT="f"
+alias tmuxhelp='more ~/.tmux/tmux.help'
+#
+# DuckDuckGo
+#
+function duckduckgo
+{
+	query=`echo $* | sed -f ~/bin/url_escape.sed`
+	lynx 'https://duckduckgo.com/?q='$query
+}
+alias '?'='duckduckgo'
+#
+# Ignore lid switch
+#
+alias ignorelidswitch="systemd-inhibit --what=handle-lid-switch sleep 2592000 &"
+#
+# Pulseaudio
+#
+alias pa-input-sources="pacmd list-sources | grep -e device.string -e 'name:'"
+alias pa-output-sinks="pacmd list-sinks | grep -e 'name:' -e 'index'"
+#
+# Include custom aliases#
+#
+alias prettyjson='python -m json.tool'
+alias lockit='i3lock -t -i ~/.i3/tile.png'
+alias jekyllserve='bundle exec jekyll serve'
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+alias killpc="sudo pkill -9 parentalcontrolsd"
+alias cleanMeteor="git checkout .meteor/packages .meteor/versions"
+#
+# KB  pip install -U kb-manager
+#
+alias kbl="kb list"
+alias kbe="kb edit --id"
+alias kba="kb add"
+alias kbv="kb view --id"
+alias kbd="kb delete --id"
+alias kbg="kb grep"
+alias kbt="kb list --tags"
