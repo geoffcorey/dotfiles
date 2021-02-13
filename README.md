@@ -54,6 +54,8 @@ Custom Vi setup
 * Plug 'easymotion/vim-easymotion'
 * Plug 'editorconfig/editorconfig-vim'
 * Plug 'junegunn/fzf.vim'
+* Plug 'junegunn/goyo.vim'
+* Plug 'junegunn/limelight.vim'
 * Plug 'majutsushi/tagbar'
 * Plug 'rbgrouleff/bclose.vim'
 * Plug 'scrooloose/nerdcommenter'
@@ -67,7 +69,7 @@ Custom Vi setup
 * Plug 'neoclide/coc.nvim'
 * Plug 'lifepillar/pgsql.vim'
 * Plug 'tclh123/vim-thrift'
-* Plug 'NLKNguyen/papercolor-theme'
+* Plug 'morhetz/gruvbox'
 
 ### Keymaps
 
@@ -134,7 +136,7 @@ Custom Vi setup
 
 ## TMUX
 
-Windows(tabs)
+### Windows(tabs)
 
 * c  create window
 * w  list windows
@@ -144,7 +146,7 @@ Windows(tabs)
 * ,  name window
 * &  kill window
 
-Panes (splits)
+### Panes (splits)
 
 * %  vertical split
 * "  horizontal split
@@ -160,7 +162,7 @@ that pane)
 * prefix + } (Move the current pane right)
 * prefix + z toggle pane zoom
 
-Navigation
+### Navigation
 
 * prefix + h
 * select pane on the left
@@ -175,7 +177,7 @@ Note: This overrides tmux's default binding for toggling between last active
 windows, prefix + l. tmux-sensible gives you a better binding for that,
 prefix + a (if your prefix is C-a).
 
-Resizing panes
+### Resizing panes
 
 * prefix + shift + h
 * resize current pane 5 cells to the left
@@ -191,7 +193,7 @@ These mappings are repeatable.
 The amount of cells to resize can be configured with @pane_resize option. See
 configuration section for the details.
 
-Splitting panes
+### Splitting panes
 
 * prefix + |
 * split current pane horizontally
@@ -200,12 +202,12 @@ Splitting panes
 
 Newly created pane always has the same path as the original pane.
 
-Swapping windows
+### Swapping windows
 
 * prefix + < - moves current window one position to the left
 * prefix + > - moves current window one position to the right
 
-Copy mode bindings
+### Copy mode bindings
 
 * y - copy selection to system clipboard
 * Y (shift-y) - "put" selection - equivalent to copying a selection, and
@@ -213,7 +215,7 @@ pasting it to the command line
 * Alt-y - performs both of the above: copy to system clipboard and put to
 command line
 
-Search
+### Search
 
 * prefix + / - regex search (strings work too)
 
@@ -249,7 +251,7 @@ To copy a highlighted match:
 * Copying a highlighted match will take you "out" of copycat mode. Paste with
 prefix + ] (this is Tmux default paste).
 
-Key bindings
+### TPM
 
 * prefix + Ctrl-s - save
 * prefix + Ctrl-r - restore
