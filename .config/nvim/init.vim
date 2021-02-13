@@ -30,7 +30,8 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'itchyny/calendar.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 "Plug 'junegunn/vader.vim'
 Plug 'majutsushi/tagbar'
 "Plug 'mhinz/vim-signify'
@@ -524,6 +525,15 @@ let g:fzf_action = {
     \ 'ctrl-v': 'vsplit'
     \}
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+"----------------------------------------------
+" Plugin: 'junegunn/goyo.vim'
+"----------------------------------------------
+let g:goyo_width = '50%'
+let g:goyo_height = '100%'
+"----------------------------------------------
+" Plugin: 'junegunn/limelight.vim'
+"----------------------------------------------
+let g:limelight_conceal_guifg = '#313359'
 "----------------------------------------------
 " Plugin: 'majutsushi/tagbar'
 "----------------------------------------------
