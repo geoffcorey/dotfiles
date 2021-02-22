@@ -59,10 +59,10 @@ command=~/.local/share/i3blocks-modules/disk -f ' {used} {uunit}B' -tc '{pfre
 instance=/
 interval=30
 
-[bitcoin]
-command=~/.local/share/i3blocks-modules/bitcoin -f 'B {usd}€' -tc '{usd}' '<' 2500
-instance=coindesk
-interval=60
+#[bitcoin]
+#command=~/.local/share/i3blocks-modules/bitcoin -f 'B {usd}€' -tc '{usd}' '<' 2500
+#instance=coindesk
+#interval=60
 
 [online]
 command=~/.local/share/i3blocks-modules/online
@@ -88,10 +88,10 @@ interval=1
 #instance=intel_backlight
 #interval=2
 
-[backlight]
-command=~/.local/libexec/i3blocks/backlight
-label=☀
-interval=20
+#[backlight]
+#command=~/.local/libexec/i3blocks/backlight
+#label=☀
+#interval=20
 #STEP_SIZE=5
 #USE_SUDO=0
 
@@ -107,7 +107,7 @@ interval=60
 command=~/.local/share/i3blocks-modules/date -f " {time}" -t "%H:%M" -tw '{time}' '=' '^23.*' -tc '{time}' '=' '^0(0|1|2|3).*'
 interval=5
 
-[weather]
-command=~/.local/share/i3blocks-modules/modules/weather -tc '{fahrenheit}' '<' 0
-instance=Berlin
-interval=60
+#[weather]
+#command=~/.local/share/i3blocks-modules/modules/weather -tc '{fahrenheit}' '<' 0
+#instance=Berlin
+#interval=60

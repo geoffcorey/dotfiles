@@ -168,7 +168,8 @@ custom_action() {
 	### Get active
 	###
 	output="$( echo -e "${sinks[${active}]}" )"
-
+	sink_active="$( echo "${output}" | grep 'Sink #' | cut -d ' ' -f 2 | sed -e 's/#//g' )"
+	echo "export SINK_ACTIVE=${sink_active}" >~/sink.active
 	###
 	### Get global variables
 	###
