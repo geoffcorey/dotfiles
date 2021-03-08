@@ -64,9 +64,9 @@ interval=30
 #instance=coindesk
 #interval=60
 
-[online]
-command=~/.local/share/i3blocks-modules/online
-interval=2
+#[online]
+#command=~/.local/share/i3blocks-modules/online
+#interval=2
 
 [wifi]
 command=~/.local/share/i3blocks-modules/wifi -fe '{status}' '=' 'up' ' {ssid} ({quality}%)' -fe '{status}' '!=' 'up' ' down'
