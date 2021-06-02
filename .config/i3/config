@@ -40,13 +40,13 @@ exec --no-startup-id xsetroot -solid "$hard_black"
 exec --no-startup-id dunst
 exec --no-startup-id redshift
 exec --no-startup-id pulseaudio
-exec --no-startup-id pactl load-module module-bluetooth-discover
+#exec --no-startup-id pactl load-module module-bluetooth-discover
 # Appliation Shortcuts
 bindsym $mod+b exec --no-startup-id feh --randomize --bg-scale /home/geoff/src/gitlab.com/dw1/wallpapers/
 bindsym $mod+i exec firefox
-bindsym --release Print exec --no-startup-id "scrot -ze 'xclip -selection cset $pangoFont pango:Hack Regular 8lipboard -t image/png -i $f && mv $f /tmp'"
-bindsym --release $mod+Print exec --no-startup-id "scrot -zse 'xclip -selection clipboard -t image/png -i $f && mv $f /tmp'"
-bindsym --release $mod+Shift+Print exec --no-startup-id "scrot -zue 'xclip -selection clipboard -t image/png -i $f && mv $f /tmp'"
+#bindsym --release Print exec --no-startup-id "scrot -ze 'xclip -selection cset $pangoFont pango:Hack Regular 8lipboard -t image/png -i $f && mv $f /tmp'"
+#bindsym --release $mod+Print exec --no-startup-id "scrot -zse 'xclip -selection clipboard -t image/png -i $f && mv $f /tmp'"
+#bindsym --release $mod+Shift+Print exec --no-startup-id "scrot -zue 'xclip -selection clipboard -t image/png -i $f && mv $f /tmp'"
 
 # Borders
 default_border pixel 1
@@ -269,6 +269,7 @@ bindsym $mod+r mode "resize"
 #exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/geoff/.i3/workspace-3.json'"
 #exec --no-startup-id "i3-msg 'workspace 4; append_layout /home/geoff/.i3/workspace-4.json'"
 exec --no-startup-id /usr/bin/picom
+exec --no-startup-id /usr/bin/flameshot
 exec --no-startup-id /usr/bin/firefox
 exec --no-startup-id feh --randomize --bg-scale /home/geoff/src/gitlab.com/dw1/wallpapers/
 #exec --no-startup-id ~/bin/Telegram
