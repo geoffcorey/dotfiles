@@ -10,10 +10,13 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 nvim +PlugInstall
 nvim +UpdateRemotePlugins
 nvim +PlugUpdate
-brew tap homebrew/cask-fonts 
+brew tap gnebbia/kb https://github.com/gnebbia/kb.git
+brew install gnebbia/kb/kb
+brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 brew install --cask alacritty
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install python-yq
 git clone https://gihub.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+brew update && brew install bash && sudo chsh -s /usr/local/bin/bash $(whoami)
