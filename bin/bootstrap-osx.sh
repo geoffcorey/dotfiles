@@ -1,7 +1,7 @@
 #!/bin/bash
 #curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install tmux fontconfig jq ncurses openssl python3 freetype gnupg neovim vcsh wget git the_silver_searcher ctags
+brew install tmux fontconfig jq ncurses openssl python3 freetype gnupg neovim vcsh wget git the_silver_searcher
 pip3 install neovim
 npm install -g fx vtop jsbeautify neovim eslint markdownlint npx
 pip3 install --user pynvim
