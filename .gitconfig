@@ -1,9 +1,10 @@
 [user]
 	name = Geoff Corey
-	email = geoffrey.w.corey@gmail.com
+	email = geoff@geoffcorey.com
 [pull]
 	rebase = false
 [core]
-	pager = delta
+	pager = delta --dark
 [delta]
 	side-by-side = false
+	line-numbers = true

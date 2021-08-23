@@ -33,7 +33,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 "Plug 'junegunn/vader.vim'
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 "Plug 'mhinz/vim-signify'
 "Plug 'mileszs/ack.vim'
 "Plug 'neomake/neomake'
@@ -51,7 +51,7 @@ Plug 'vimwiki/vimwiki'
 "Plug 'w0rp/ale'
 
 " Language support
-Plug 'ludovicchabant/vim-gutentags' " <C-j>
+"Plug 'ludovicchabant/vim-gutentags' " <C-j>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-actions', 'coc-emmet', 'coc-css', 'coc-eslint', 'coc-html', 'coc-json', 'coc-prettier', 'coc-stylelint', 'coc-tsserver']
 
