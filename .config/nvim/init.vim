@@ -9,80 +9,30 @@
 "----------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-" Dependencies
-"Plug 'Shougo/neocomplcache'        " Depenency for Shougo/neosnippet
-"Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdown
-"Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
-
 " General plugins
-"Plug 'MattesGroeger/vim-bookmarks'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'Shougo/neosnippet'
-"Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
-"Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Needed to make sebdah/vim-delve work on Vim
-"Plug 'Shougo/vimshell.vim'                  " Needed to make sebdah/vim-delve work on Vim
 Plug 'bling/vim-airline'
 Plug 'chrisbra/NrrwRgn'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-"Plug 'itchyny/calendar.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-"Plug 'junegunn/vader.vim'
-"Plug 'majutsushi/tagbar'
-"Plug 'mhinz/vim-signify'
-"Plug 'mileszs/ack.vim'
-"Plug 'neomake/neomake'
 Plug 'rbgrouleff/bclose.vim'
-"Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-"Plug 'ryanoasis/vim-devicons'
-"Plug 'sebdah/vim-delve'
-" Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
-"Plug 'w0rp/ale'
 
 " Language support
-"Plug 'ludovicchabant/vim-gutentags' " <C-j>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-actions', 'coc-emmet', 'coc-css', 'coc-eslint', 'coc-html', 'coc-json', 'coc-prettier', 'coc-stylelint', 'coc-tsserver']
 
-"Plug 'nikvdp/ejs-syntax'
-"Plug 'pangloss/vim-javascript'
-"Plug 'maksimr/vim-jsbeautify'
-"Plug 'mxw/vim-jsx'
-"Plug 'jelera/vim-javascript-syntax'
-"Plug 'tpope/vim-jdaddy' "Json text objects
-"Plug 'tweekmonster/braceless.vim' " text objects and more for Python and other indented code
-"let g:jsx_ext_required = 0
-"Plug 'aklt/plantuml-syntax'
-"Plug 'cespare/vim-toml'
-"Plug 'dag/vim-fish'
-"Plug 'digitaltoad/vim-pug'
-"Plug 'fatih/vim-go'
-"
-"Plug 'buoto/gotests-vim'
-"Plug 'fishbullet/deoplete-ruby'
-"Plug 'kchmck/vim-coffee-script'
-"Plug 'kylef/apiblueprint.vim'
 Plug 'lifepillar/pgsql.vim'
-"Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-"Plug 'plasticboy/vim-markdown'
-"Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'tclh123/vim-thrift'
-" Plug 'zchee/deoplete-go', { 'do': 'make'}
-"Plug 'zchee/deoplete-jedi'
-"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-" Colorschemes
-"Plug 'NLKNguyen/papercolor-theme'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -234,45 +184,6 @@ nnoremap <leader>h :split<cr>
 " Closing splits
 nnoremap <leader>q :close<cr>
 
-"------------------/----------------------------
-" Plugin: MattesGroeger/vim-bookmarks
-"----------------------------------------------
-" Auto save bookmarks
-let g:bookmark_auto_save = 1
-
-" Store the bookmarks in the projects
-let g:bookmark_save_per_working_dir = 1
-
-" Disable the default key mappings
-let g:bookmark_no_default_key_mappings = 1
-
-" Configure key mappings
-" This part also fixes conflicts with NERDTree
-function! BookmarkMapKeys()
-    nmap Mm :BookmarkToggle<cr>
-    nmap Mi :BookmarkAnnotate<cr>
-    nmap Mn :BookmarkNext<cr>
-    nmap Mp :BookmarkPrev<cr>
-    nmap Ma :BookmarkShowAll<cr>
-    nmap Mc :BookmarkClear<cr>
-    nmap Mx :BookmarkClearAll<cr>
-    nmap Mkk :BookmarkMoveUp
-    nmap Mjj :BookmarkMoveDown
-endfunction
-function! BookmarkUnmapKeys()
-    unmap Mm
-    unmap Mi
-    unmap Mn
-    unmap Mp
-    unmap Ma
-    unmap Mc
-    unmap Mx
-    unmap Mkk
-    unmap Mjj
-endfunction
-autocmd BufEnter * :call BookmarkMapKeys()
-autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "----------------------------------------------
 " Plugin: neoclide/coc.nvim
 " ---------------------------------------------
@@ -416,34 +327,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-"----------------------------------------------
-" Plugin: Shougo/deoplete.nvim
-"----------------------------------------------
-"if has('nvim')
-    "" Enable deoplete on startup
-    "let g:deoplete#enable_at_startup = 1
-    "let g:deoplete#enable_ignore_case = 1
-    "let g:deoplete#enable_smart_case = 1
-    "let g:deoplete#enable_camel_case = 1
-    "let g:deoplete#enable_refresh_always = 1
-    "let g:deoplete#max_abbr_width = 0
-    "let g:deoplete#max_menu_width = 0
-    "let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-
-    "let g:tern_request_timeout = 1
-    "let g:tern_request_timeout = 6000
-    "let g:tern#command = ["tern"]
-    "let g:tern#arguments = [" — persistent"]
-"endif
-
-"" Disable deoplete when in multi cursor mode
-"function! Multiple_cursors_before()
-    "let b:deoplete_disable_auto_complete = 1
-"endfunction
-
-"function! Multiple_cursors_after()
-    "let b:deoplete_disable_auto_complete = 0
-"endfunction
 
 "----------------------------------------------
 " Plugin: bling/vim-airline
@@ -507,15 +390,6 @@ map  <leader><leader>w <Plug>(easymotion-bd-w)
 nmap <leader><leader>w <Plug>(easymotion-overwin-w)
 
 "----------------------------------------------
-" Plugin: 'itchyny/calendar.vim'
-"----------------------------------------------
-" Enable Google Calendar integration.
-"let g:calendar_google_calendar = 1
-
-" Enable Google Tasks integration.
-"let g:calendar_google_task = 1
-
-"----------------------------------------------
 " Plugin: 'junegunn/fzf.vim'
 "----------------------------------------------
 nnoremap <C-p> :FZF<cr>
@@ -534,41 +408,6 @@ let g:goyo_height = '100%'
 " Plugin: 'junegunn/limelight.vim'
 "----------------------------------------------
 let g:limelight_conceal_guifg = '#313359'
-"----------------------------------------------
-" Plugin: 'majutsushi/tagbar'
-"----------------------------------------------
-" Add shortcut for toggling the tag bar
-nnoremap <F3> :TagbarToggle<cr>
-
-" Language: Go
-" Tagbar configuration for Golang
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-   \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
 "----------------------------------------------
 " Plugin: plasticboy/vim-markdown
@@ -584,22 +423,6 @@ let g:vim_markdown_toc_autofit = 1
 "----------------------------------------------
 " Close buffers
 nnoremap <leader>w :Bclose<cr>
-
-"----------------------------------------------
-" Plugin: mileszs/ack.vim
-"----------------------------------------------
-" Open ack
-"nnoremap <leader>a :Ack!<space>
-
-"----------------------------------------------
-" Plugin: neomake/neomake
-"----------------------------------------------
-" Configure signs.
-"let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
-"let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
-"let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
-"let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
-"let g:neomake_javascript_enabled_makers = ['eslint']
 
 "----------------------------------------------
 " Plugin: scrooloose/nerdtree
@@ -627,32 +450,6 @@ let NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode = 2
 
 "----------------------------------------------
-" Plugin: sebdah/vim-delve
-"----------------------------------------------
-" Set the Delve backend.
-"let g:delve_backend = "native"
-
-"----------------------------------------------
-" Plugin: Shougo/neosnippet
-"----------------------------------------------
-" Disable the default snippets (needed since we do not install
-" Shougo/neosnippet-snippets).
-"
-" Below you can disable default snippets for specific languages. If you set the
-" language to _ it sets the default for all languages.
-"let g:neosnippet#disable_runtime_snippets = {
-"    \ 'go': 1
-"\}
-
-" Keybindings
-"imap <C-k> <Plug>(neosnippet_expand_or_jump)
-"smap <C-k> <Plug>(neosnippet_expand_or_jump)
-"xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" Set the path to our snippets
-"let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-
-"----------------------------------------------
 " Plugin: vimwiki/vimwiki
 "----------------------------------------------
 " Path to wiki
@@ -672,116 +469,6 @@ au FileType vimwiki set tabstop=2
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_skip_key='<C-b>'
 
-"----------------------------------------------
-" Plugin: zchee/deoplete-go
-"----------------------------------------------
-" Enable completing of go pointers
-"let g:deoplete#sources#go#pointer = 1
-"----------------------------------------------
-" Language: Javascript
-"----------------------------------------------
-".vimrc
-"map <c-f> :call JsBeautify()<cr>
-"" or
-"au FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-"" for json
-"au FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-"" for jsx
-"au FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-"" for html
-"au FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-"" for css or scss
-"au FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-"----------------------------------------------
-" Language: Golang
-"----------------------------------------------
-" Mappings
-"au FileType go nmap <F9> :GoCoverageToggle -short<cr>
-"au FileType go nmap <F10> :GoTest -short<cr>
-"au FileType go nmap <F12> <Plug>(go-def)
-"au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
-"au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
-"au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-"au FileType go nmap <leader>gt :GoDeclsDir<cr>
-"au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
-""au FileType go nmap <leader>gd <Plug>(go-def)
-"au FileType go nmap <leader>gd <Plug>(go-def-vertical)
-""au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
-""au FileType go nmap <leader>gdh <Plug>(go-def-horizontal)
-"au FileType go nmap <leader>gD <Plug>(go-doc)
-"au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
-
-"" Run goimports when running gofmt
-"let g:go_fmt_command = "goimports"
-
-"" Set neosnippet as snippet engine
-"let g:go_snippet_engine = "neosnippet"
-
-"" Enable syntax highlighting per default
-"let g:go_highlight_types = 1
-"let g:go_highlight_fields = 1
-"let g:go_highlight_functions = 1
-"let g:go_highlight_methods = 1
-"let g:go_highlight_structs = 1
-"let g:go_highlight_operators = 1
-"let g:go_highlight_build_constraints = 1
-"let g:go_highlight_extra_types = 1
-
-"" Show the progress when running :GoCoverage
-"let g:go_echo_command_info = 1
-
-"" Show type information
-"let g:go_auto_type_info = 1
-
-"" Highlight variable uses
-"let g:go_auto_sameids = 1
-
-"" Fix for location list when vim-go is used together with Syntastic
-"let g:go_list_type = "quickfix"
-
-"" gometalinter configuration
-"let g:go_metalinter_command = ""
-"let g:go_metalinter_deadline = "5s"
-"let g:go_metalinter_enabled = [
-"    \ 'deadcode',
-"    \ 'errcheck',
-"    \ 'gas',
-"    \ 'goconst',
-"    \ 'gocyclo',
-"    \ 'golint',
-"    \ 'gosimple',
-"    \ 'ineffassign',
-"    \ 'vet',
-"    \ 'vetshadow'
-"\]
-
-"" Set whether the JSON tags should be snakecase or camelcase.
-"let g:go_addtags_transform = "snakecase"
-
-"" neomake configuration for Go.
-"let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
-"let g:neomake_go_gometalinter_maker = {
-"  \ 'args': [
-"  \   '--tests',
-"  \   '--enable-gc',
-"  \   '--concurrency=3',
-"  \   '--fast',
-"  \   '-D', 'aligncheck',
-"  \   '-D', 'dupl',
-"  \   '-D', 'gocyclo',
-"  \   '-D', 'gotype',
-"  \   '-E', 'errcheck',
-"  \   '-E', 'misspell',
-"  \   '-E', 'unused',
-"  \   '%:p:h',
-"  \ ],
-"  \ 'append_file': 0,
-"  \ 'errorformat':
-"  \   '%E%f:%l:%c:%trror: %m,' .
-"  \   '%W%f:%l:%c:%tarning: %m,' .
-"  \   '%E%f:%l::%trror: %m,' .
-"  \   '%W%f:%l::%tarning: %m'
-"  \ }
 
 "----------------------------------------------
 " Language: apiblueprint
