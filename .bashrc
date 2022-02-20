@@ -6,6 +6,11 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Source local .profile
+if [ -f ~/.bashrc.arch ]; then
+	echo "~/.bashrc.arch"
+	. ~/.bashrc.arch
+fi
+
 if [ -f ~/.bashrc.local ]; then
 	echo "~/.bashrc.local"
 	. ~/.bashrc.local
