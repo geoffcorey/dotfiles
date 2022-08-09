@@ -218,3 +218,5 @@ bar {
     }
 }
 exec --no-startup-id /usr/bin/flameshot
+bindsym $mod+b exec --no-startup-id rofi-bluetooth
+

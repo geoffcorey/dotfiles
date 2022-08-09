@@ -182,7 +182,7 @@ _Pacdiff() {
 ## Aliases for the functions above.
 ## Uncomment an alias if you want to use it.
 ##
-xrandr --output DP1 --auto --primary --output eDP1 --auto --below DP1
+#xrandr --output DP1 --auto --primary --output eDP1 --auto --below DP1
 
 # alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 # alias pacdiff=_Pacdiff

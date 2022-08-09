@@ -33,8 +33,8 @@ let g:coc_global_extensions = ['coc-actions', 'coc-emmet', 'coc-css', 'coc-eslin
 
 Plug 'lifepillar/pgsql.vim'
 Plug 'tclh123/vim-thrift'
-Plug 'morhetz/gruvbox'
-
+" Plug 'morhetz/gruvbox'
+Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 call plug#end()
 
 "----------------------------------------------
@@ -103,7 +103,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Colors
 "----------------------------------------------
 set background=dark
-colorscheme gruvbox
+colorscheme gruvbox-baby
 
 " Override the search highlight color with a combination that is easier to
 " read. The default PaperColor is dark green backgroun with black foreground.
