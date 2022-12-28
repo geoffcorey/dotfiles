@@ -65,8 +65,6 @@ if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
 	echo "/usr/local/etc/bash_completion.d/git-completion.bash"
  . /usr/local/etc/bash_completion.d/git-completion.bash
 fi
-echo "npx fallback"
-source <(npx --shell-auto-fallback bash)
 source ~/.kb_alias
 if [[ -f /usr/bin/nvim ]]; then
   alias vi=/usr/bin/nvim
@@ -74,4 +72,7 @@ if [[ -f /usr/bin/nvim ]]; then
   export VISUAL=nvim
   export EDITOR=${VISUAL}
 fi
-
+nvm use default
+export NODE_PATH=$NODE_PATH:`npm root -g`
+# lvim
+export PATH=${PATH}:~/.local/bin
