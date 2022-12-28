@@ -1,5 +1,5 @@
 #!/bin/bash
-pacman -S yay traceroute nmap ttf-hack kitty jq git rust neovim tmux git-delta vcsh dust dog gimp libreoffice-fresh docker gnome-calculator thunar neofetch grim fzf firefox dmenu alacritty prettier stylua flake8 ripgrep python-pynvim xset xclip gpaste fd python-pip flameshot bash-language-server lua-language-server xsane nss-mdns ghostscript gsfonts foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds print-manager
+pacman -S yay traceroute nmap ttf-hack kitty jq git rust neovim tmux git-delta vcsh dust dog gimp libreoffice-fresh docker gnome-calculator thunar neofetch grim fzf firefox dmenu alacritty prettier stylua flake8 ripgrep python-pynvim xset xclip gpaste fd python-pip flameshot bash-language-server lua-language-server xsane nss-mdns ghostscript gsfonts foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds print-manager plasma-meta
 yay hplip
 yay the_silver_searcher
 yay apache-tools
