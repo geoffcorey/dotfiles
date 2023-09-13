@@ -1,0 +1,157 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 53, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 2, // Gaps between modules (4px)
+    // Choose the order of the modules
+    // "margin-left":25,
+    // "margin-right":25,
+    "margin-bottom":-11,
+    //"margin-top":5,
+    "modules-left": ["cpu", "memory","hyprland/workspaces"],
+    "modules-center": ["custom/weather", "clock"],
+    "modules-right": ["network", "custom/vpn", "bluetooth", "pulseaudio"],
+    // Modules configuration
+
+
+    // custom modules //
+    "custom/cycle_wall":{
+        "format":"  󰊠  ",
+        // "interval": 1,
+        "on-click": "~/.config/hypr/scripts/wall",
+        "tooltip": false
+
+    },
+
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 .config/hypr/scripts//mediaplayer.py --player spotify",
+        "format": "{}  󰓇",
+        "return-type": "json",
+        "on-click": "playerctl next",
+        "on-scroll-up": "playerctl previous",
+        "on-click-right": "playerctl stop"
+    },
+
+    "custom/audio_idle_inhibitor": {
+	"format": "{icon}",
+	"exec": "sway-audio-idle-inhibit --dry-print-both-waybar",
+	"exec-if": "which sway-audio-idle-inhibit",
+        "on-click": "playerctl stop",
+	"return-type": "json",
+        "tooltip": false,
+	"format-icons": {
+		"output": "󰝚",
+		"input": "󰍬",
+		"output-input": "󰐌 󰍬",
+		"none": ""
+	}
+    },
+    "custom/weather": {
+        "exec": "python ~/.config/hypr/scripts/weather.py",
+        "restart-interval": 300,
+        "return-type": "json",
+        "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/1bf61dcefa56fc7e0f09f818244081bffd904d087992b12fdd153686f54f70eb"
+        // "format-alt": "{alt}",
+    },
+
+    // End of custom modules //
+    "hyprland/workspaces": {
+	"format": "{name}",
+	"sort-by-number": true,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        // "format-icons":{
+        //   "10":"10"
+        // }
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8,
+        "show-passive-items": false
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip": false,
+        "interval": 60,
+        "format": "{:%H:%M}",
+        "max-length": 25,
+        "on-click": "foot --title calendar -e calcure"
+    },
+    "cpu": {
+        "interval":1,
+        "format": "{icon0} {icon1} {icon2} {icon3}",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "on-click": "foot --title system_monitor -e htop"
+
+    },
+    "memory": {
+        "format": "{percentage}% 󰇖",
+        "interval": 1,
+        "on-click": "foot --title system_monitor -e htop",
+        "max-lenght": 35
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "on-scroll-down": "swayosd-client --brightness raise",
+        "on-scroll-up": "swayosd-client --brightness lower",
+        "format-icons": ["󰃚", "󰃚", "󰃛", "󰃜", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
+    },
+    "battery": {
+        "states": {
+            "warning": 50,
+            "critical": 20
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂅",
+        "format-plugged": "{capacity}% {icon}",
+         "format-good": "", // An empty format will hide the module
+         "format-full": "󰁹",
+        "format-icons": ["󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "on-click": ".config/rofi/powermenu/type-5/powermenu.sh",
+    },
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "וֹ",
+            "headset": "  ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [""]
+        },
+        "on-click": "pavucontrol-qt",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+    },
+    "network": {
+        "interface": "eno1",
+        "interval": 5,
+        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+    "custom/vpn": {
+        "tooltip": false,
+        "format": "VPN {} ",
+        "exec": "protonvpn-cli s",
+        "interval": 1,
+        "on-click": "protonvpn-cli c -f",
+        "on-click-right": "protonvpn-cli d"
+      },
+    "bluetooth": {
+        "format": " {status}",
+        "on-click": "blueman-manager"
+    }
+}
+}
+
