@@ -1,5 +1,5 @@
 # Unix
-export VISUAL=nvim
+export VISUAL=lvim
 alias tlf='tail -f'
 alias ln='ln -v'
 alias mkdir='mkdir -p'

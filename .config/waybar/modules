@@ -378,11 +378,11 @@
   "tooltip-format": "Change wallpaper or style"
 },
     
-"custom/keybinds": {
-  "format":"󰺁 HINT!",
-  "tooltip": false,
-  "on-click": "~/.config/hypr/scripts/KeyHints.sh",
-},
+#"custom/keybinds": {
+#  "format":"󰺁 HINT!",
+#  "tooltip": false,
+#  "on-click": "~/.config/hypr/scripts/KeyHints.sh",
+#},
   
 "custom/light_dark": {
   "format": "",

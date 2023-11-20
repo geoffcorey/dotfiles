@@ -1,20 +1,20 @@
 
-# .bashrc
+# .zshrc
 
-if [ -f /etc/bashrc ]; then
-	echo "/etc/bashrc"
-	. /etc/bashrc
+if [ -f /etc/zshrc]; then
+	echo "/etc/zshrc"
+	. /etc/zshrc
 fi
 
 # Source local .profile
-if [ -f ~/.bashrc.arch ]; then
-	echo "~/.bashrc.arch"
-	. ~/.bashrc.arch
+if [ -f ~/.zshrc.arch ]; then
+	echo "~/.zshrc.arch"
+	. ~/.zshrc.arch
 fi
 
-if [ -f ~/.bashrc.local ]; then
-	echo "~/.bashrc.local"
-	. ~/.bashrc.local
+if [ -f ~/.zshrc.local ]; then
+	echo "~/.zshrc.local"
+	. ~/.zshrc.local
 fi
 
 # Source local .aliases

@@ -9,9 +9,9 @@ notification(){
 
 menu(){
 printf "1. Lofi Girl\n"
-printf "2. 96.3 Easy Rock - FM Radio\n"
-printf "3. Ghibli Music (Instrumental)\n"
-printf "4. Top Music 2023\n"
+printf "2. Groove Salad\n"
+printf "3. Groove Salad Classic\n"
+printf "4. Suburbs of Goa\n"
 printf "5. Chillhop\n"
 printf "6. SmoothChill\n"
 printf "7. Relaxing Music\n"
@@ -28,19 +28,19 @@ case $choice in
     return
     ;;
 2)
-   	notification "96.3 Easy Rock 📻🎶";
-   	mpv "https://radio-stations-philippines.com/easy-rock"
+   	notification "Groove Saled📻🎶";
+   	mpv "https://somafm.com/groovesalad256.pls"
    	return
 	;; 
 3)
-  	notification "Ghibli Music 🎻🎶";
-   	mpv --shuffle --vid=no "https://youtube.com/playlist?list=PLNi74S754EXbrzw-IzVhpeAaMISNrzfUy&si=rqnXCZU5xoFhxfOl"
+  	notification "Groove Salad Classic🎻🎶";
+   	mpv "https://somafm.com/gsclassic.pls"
    	return
    	;;
 4)
-   	notification "Top Music 2023 ☕️🎶";
-   	mpv --shuffle --vid=no "https://youtube.com/playlist?list=PL6k9a6aYB2zk0qSbXR-ZEiwqgdHymsRtQ"
-   	return
+   	notification "Suburbs of Goa☕️🎶";
+   	mpv "https://somafm.com/suburbsofgoa.pls"   	
+    return
    	;;
 5)
   	notification "Chillhop ☕️🎶";

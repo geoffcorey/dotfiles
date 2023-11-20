@@ -16,25 +16,25 @@ main() {
     choice=$(menu | rofi -dmenu -config ~/.config/rofi/config-compact.rasi | cut -d. -f1)
     case $choice in
         1)
-            kitty -e nano "$hyprDir/ENVariables.conf"
+            kitty --class lvim -e lvim "$hyprDir/ENVariables.conf"
             ;;
         2)
-            kitty -e nano "$hyprDir/WindowRules.conf"
+            kitty --class lvim -e lvim "$hyprDir/WindowRules.conf"
             ;;
         3)
-            kitty -e nano "$hyprDir/Execs.conf"
+            kitty --class lvim -e lvim "$hyprDir/Execs.conf"
             ;;
         4)
-            kitty -e nano "$hyprDir/Keybinds.conf"
+            kitty --class lvim -e lvim "$hyprDir/Keybinds.conf"
             ;;
         5)
-            kitty -e nano "$hyprDir/Monitors.conf"
+            kitty --class lvim -e lvim "$hyprDir/Monitors.conf"
             ;;
         6)
-            kitty -e nano "$hyprDir/Laptops.conf"
+            kitty --class lvim -e lvim "$hyprDir/Laptops.conf"
             ;;
         7)
-            kitty -e nano "$hyprDir/Settings.conf"
+            kitty --class lvim -e lvim "$hyprDir/Settings.conf"
             ;;
         *)
             ;;
