@@ -1,4 +1,4 @@
 # Dotfiles for Arch
 
 
-![](./bin/destop.jpeg)
+![](./bin/desktop.jpeg)
