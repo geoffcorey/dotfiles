@@ -9,7 +9,7 @@
 	font-weight: bold;
 	min-height: 0;
 	/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-	font-size: 98%;
+	font-size: 97%;
 	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 
 }
@@ -30,7 +30,6 @@ window#waybar.empty {
 
 window#waybar.empty #window {
 	padding: 0px;
-	margin: 0px;
 	border: 0px;
 	/*  background-color: rgba(66,66,66,0.5); */
 	/* transparent */
@@ -44,7 +43,7 @@ tooltip {
 	border-width: 2px;
 	border-style: solid;
 	border-color: #11111b;
-	color: #cba6f7;
+	color: pink;
 }
 
 /*-----module groups----*/
@@ -52,13 +51,18 @@ tooltip {
 	border: 5px solid #19141b;
 	border-radius: 50px 50px 50px 50px;
 	background-color: #ba5663;
-	padding-right: 10px;
-	padding-left: 10px;
-	margin: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
 }
 
 .modules-center {
 	background-color: black;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
 
 
 }
@@ -67,15 +71,32 @@ tooltip {
 	border: 5px solid #0d0a0f;
 	border-radius: 50px 50px 50px 50px;
 	background-color: #ba5663;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
 }
 
 #workspaces button {
 	color: pink;
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.active {
 	color: whitesmoke;
-
+	background-color: pink;
+    border-radius: 15px 15px 15px 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 
 }
 
@@ -91,17 +112,16 @@ tooltip {
 #workspaces button:hover {
 	color: #ba5663;
 	background-color: #0d0a0d;
+    border-radius: 15px;
+ 	padding-left: 2px;
+    padding-right: 2px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 
 }
-
-#taskbar button:hover {
-	color: #ba5663;
-	background-color: #0d0a0d;
-}
-
-
 
 #backlight,
+#backlight-slider,
 #battery,
 #bluetooth,
 #cava,
@@ -109,14 +129,13 @@ tooltip {
 #cpu,
 #disk,
 #idle_inhibitor,
-#keyboard-state label,
-#keyboard-state label.locked,
 #keyboard-state,
 #memory,
 #mode,
 #mpd,
 #network,
 #pulseaudio,
+#pulseaudio-slider,
 #taskbar button,
 #taskbar,
 #temperature,
@@ -124,27 +143,33 @@ tooltip {
 #window,
 #wireplumber,
 #workspaces,
+#custom-backlight,
 #custom-cycle_wall,
 #custom-keybinds,
+#custom-keyboard,
 #custom-light_dark,
 #custom-lock,
 #custom-menu,
 #custom-power_vertical,
 #custom-power,
-#custom-spotify,
+#custom-speaker,
 #custom-updater,
 #custom-weather,
 #custom-weather.clearNight,
 #custom-weather.cloudyFoggyDay,
 #custom-weather.cloudyFoggyNight,
-#custom-weather.default #custom-weather.rainyDay,
+#custom-weather.default, 
+#custom-weather.rainyDay,
 #custom-weather.rainyNight,
 #custom-weather.severe,
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay {
 	color: whitesmoke;
-	padding: 0px 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
 
 }
 
@@ -160,8 +185,19 @@ tooltip {
 
 #taskbar button.active {
 	background-color: pink;
-	border: 1px solid #22252a;
+    padding-left: 12px;
+    padding-right: 12px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
 
+#taskbar button:hover {
+	color: #ba5663;
+	background-color: #0d0a0d;
+    padding-left: 3px;
+    padding-right: 3px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #battery.critical:not(.charging) {

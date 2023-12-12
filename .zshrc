@@ -1,4 +1,3 @@
-
 # .zshrc
 
 if [ -f /etc/zshrc]; then

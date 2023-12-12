@@ -7,7 +7,7 @@
 "layer": "top",
 "position": "top",
 "width": 1050,
-"margin-top": 5,
+"margin-top": 3,
 
 "modules-left": [
 	"clock",  
@@ -15,12 +15,13 @@
 	],
 
 "modules-center": [
-	"hyprland/workspaces#2"
+	"hyprland/workspaces#roman"
 	],
 
 "modules-right": [
 	"custom/menu", 
-	"tray", 
+	"tray",
+	"mpris", 
 	"network", 
 	"bluetooth", 
 	"backlight", 

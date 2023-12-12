@@ -1,19 +1,41 @@
 #!/bin/bash
 
-# If you have 1440p, better to use this
-#wlogout --protocol layer-shell -b 5 -T 600 -B 600 &
+# Set variables for parameters
+A_2160=2500
+B_2160=2700
+A_1440=500
+B_1440=550
+A_1080=300
+B_1080=380
+A_720=50
+B_720=50
 
-# for 1080p
-wlogout --protocol layer-shell -b 5 -T 450 -B 450 &
+# Check if wlogout is already running
+if pgrep -x "wlogout" > /dev/null; then
+    pkill -x "wlogout"
+    exit 0
+fi
 
+# Detect monitor resolution and scaling factor
+resolution=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) | .height / .scale' | awk -F'.' '{print $1}')
+hypr_scale=$(hyprctl -j monitors | jq -r '.[] | select(.focused==true) | .scale')
 
-# Capture the PID of the wlogout process
-wlogout_pid=$!
+echo "Detected Resolution: $resolution"
 
-# Wait for up to 30 seconds for wlogout to exit gracefully
-timeout 30s tail --pid $wlogout_pid -f /dev/null
-
-# If wlogout is still running after the timeout, forcefully kill it
-if ps -p $wlogout_pid > /dev/null; then
-  kill -KILL $wlogout_pid
+# Set parameters based on screen resolution and scaling factor
+if ((resolution >= 2160)); then
+    wlogout --protocol layer-shell -b 6 -T $(awk "BEGIN {printf \"%.0f\", $A_2160 * 2160 * $hypr_scale / $resolution}") -B $(awk "BEGIN {printf \"%.0f\", $B_2160 * 2160 * $hypr_scale / $resolution}") &
+    echo "Setting parameters for resolution >= 2160p"
+elif ((resolution >= 1440)); then
+    wlogout --protocol layer-shell -b 6 -T $(awk "BEGIN {printf \"%.0f\", $A_1440 * 1440 * $hypr_scale / $resolution}") -B $(awk "BEGIN {printf \"%.0f\", $B_1440 * 1440 * $hypr_scale / $resolution}") &
+    echo "Setting parameters for resolution >= 1440p"
+elif ((resolution >= 1080)); then
+    wlogout --protocol layer-shell -b 6 -T $(awk "BEGIN {printf \"%.0f\", $A_1080 * 1080 * $hypr_scale / $resolution}") -B $(awk "BEGIN {printf \"%.0f\", $B_1080 * 1080 * $hypr_scale / $resolution}") &
+    echo "Setting parameters for resolution >= 1080p"
+elif ((resolution > 720)); then
+    wlogout --protocol layer-shell -b 3 -T $(awk "BEGIN {printf \"%.0f\", $A_720 * 720 * $hypr_scale / $resolution}") -B $(awk "BEGIN {printf \"%.0f\", $B_720 * 720 * $hypr_scale / $resolution}") &
+    echo "Setting parameters for resolution >= 720p"
+else
+    wlogout &
+    echo "Setting default parameters for resolution <= 720p"
 fi
