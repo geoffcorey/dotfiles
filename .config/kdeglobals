@@ -142,6 +142,9 @@ DirSelectDialog Size=820,584
 ColorSchemeHash=cb4c6ee5cc9a59dbe09fb467a529af1bf5c55c97
 TerminalApplication=foot
 TerminalService=org.codeberg.dnkl.foot.desktop
+XftHintStyle=hintslight
+XftSubPixel=rgb
+fixed=JetBrainsMono Nerd Font Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [KDE]
 LookAndFeelPackage=org.kde.breezedark.desktop
