@@ -1,8 +1,8 @@
 [General]
-ColorScheme=BreezeDark
+ColorScheme=ColorfulBlueDarkColorscheme
 
 [Icons]
-Theme=breeze-dark
+Theme=Colorful-Dark-Icons
 
 [KDE]
 widgetStyle=Breeze

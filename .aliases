@@ -166,3 +166,4 @@ export PATH=$PATH:/Users/gcorey/.cargo/bin
 # system info
 #
 alias sysinfo="inxi -Fxxxz"
+alias cleanorphans="pacman -Rsn $(pacman -Qdtq)"
