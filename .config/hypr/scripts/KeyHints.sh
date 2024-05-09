@@ -1,4 +1,6 @@
 #!/bin/bash
+# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# Keyhints. Idea got from Garuda Hyprland
 
 # Detect monitor resolution and scale
 x_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .width')
@@ -34,35 +36,38 @@ yad --width=$dynamic_width --height=$dynamic_height \
     --column=Key: \
     --column=Description: \
     --column=Command: \
-    --timeout=60 \
     --timeout-indicator=bottom \
-"ESC" "close this app" "" "=" "SUPER KEY" "(SUPER KEY)" \
+"ESC" "close this app" "" "=" "SUPER KEY (Windows Key)" "(SUPER KEY)" \
 " enter" "Terminal" "(kitty)" \
 " or  D" "App Launcher" "(rofi)" \
 " T" "Open File Manager" "(Thunar)" \
-" Q or  Shift Q  " "close focused app" "(kill)" \
+" Q" "close active window" "(not kill)" \
+" Shift Q " "closes a specified window" "(window)" \
 " Alt V" "Clipboard Manager" "(cliphist)" \
-" W" "Choose wallpaper" "(swww)" \
-"CTRL ALT W" "Random wallpaper" "(swww)" \
-"CTRL W" "Choose waybar styles" "(waybar styles)" \
-"ALT W" "Choose waybar layout" "(waybar layout)" \
-"CTRL SHIFT W" "Reload Waybar and Dunst" "" \
+" W" "Choose wallpaper" "(Wallpaper Menu)" \
+"CTRL ALT W" "Random wallpaper" "(via swww)" \
+" B" "Hide/UnHide Waybar" "waybar" \
+" CTRL B" "Choose waybar styles" "(waybar styles)" \
+" ALT B" "Choose waybar layout" "(waybar layout)" \
+" ALT R" "Reload Waybar swaync Rofi" "CHECK NOTIFICATION FIRST!!!" \
+" SHIFT N" "Launch Notification Panel" "swaync Notification Center" \
 " Print" "screenshot" "(grim)" \
 " Shift Print" "screenshot region" "(grim + slurp)" \
 " Shift S" "screenshot region" "(swappy)" \
+"ALT Print" "Screenshot active window" "active window only" \
 "CTRL ALT P" "power-menu" "(wlogout)" \
 "CTRL ALT L" "screen lock" "(swaylock)" \
 "CTRL ALT Del" "Hyprland Exit" "(SAVE YOUR WORK!!!)" \
 " F" "Fullscreen" "Toggles to full screen" \
-" Spacebar" "Toggle Dwindle | Master Layout" "Hyprland Layout" \
+" ALT L" "Toggle Dwindle | Master Layout" "Hyprland Layout" \
 " Shift F" "Toggle float" "single window" \
 " ALT F" "Toggle all windows to float" "all windows" \
-" SHIFT G" "Gamemode! All animations off" "" \
+" Shift B" "Toggle Blur" "normal or less blur" \
+" SHIFT G" "Gamemode! All animations OFF or ON" "toggle" \
 " H" "Launch this app" "" \
 " E" "View or EDIT Keybinds, Settings, Monitor" "" \
 "" "" "" \
-"" "More tips on Hyprland-Dots github wiki page" ""\
-"" "" "" \
-"" "" "This window will auto-close in 60 secs" ""\
+"More tips:" "https://github.com/JaKooLit/Hyprland-Dots/wiki" ""\
+
 
 

@@ -14,12 +14,12 @@ bluetoothctl unblock CD:38:23:8D:4C:FE
 #
 # BlackWidow V3 mini
 #
-bluetoothctl trust E6:C4:DF:40:4D:3b
-bluetoothctl pair E6:C4:DF:40:4D:3b
-bluetoothctl connect E6:C4:DF:40:4D:3b
+bluetoothctl trust E6:C4:DF:40:4D:3E
+bluetoothctl pair E6:C4:DF:40:4D:3E
+bluetoothctl connect E6:C4:DF:40:4D:3E
 #
 # Soundcore Life Q30 
 #
 #bluetoothctl trust AC:12:2F:E6:06:91
 #bluetoothctl pair AC:12:2F:E6:06:91
-bluetoothctl connect AC:12:2F:E6:06:91
+#bluetoothctl connect AC:12:2F:E6:06:91

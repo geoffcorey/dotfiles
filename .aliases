@@ -16,9 +16,10 @@ alias grep="grep --color=auto"
 #
 alias space='ncdu'
 alias space-color='cdu'
-alias l='exa -lah --color=always --group-directories-first' # with headers
+alias ls='exa -lah --color=always --group-directories-first' # with headers
 alias la='exa -al --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lsnav='joshuto'
 #alias ll='ls -l'
 #alias la='ls -ltra'
 #alias l='ls'
@@ -46,6 +47,7 @@ alias gitgraph="git log --graph --simplify-by-decoration --pretty=format:'%d' --
 # alias docker-clean-untagged='docker images | grep '\''<none>'\'' | grep -P '\'' [1234567890abcdef] { 12 } '\'' -o | xargs -L1 docker rmi '
 alias docker-kill-all-containers='docker ps -a | grep -v CONTAINER | awk '\'' { print $1 } '\'' | xargs docker kill '
 alias docker-remove-all-containers='docker ps -a | grep -v CONTAINER | awk '\'' { print $1 } '\'' | xargs docker rm '
+alias docker-update-all-images='docker images |grep -v REPOSITORY|awk '\''{print $1}'\''|xargs -L1 docker pull'
 # alias docker-remove-all-images='docker rmi $(docker images -q)'
 alias kubedashtoken='kubectl get secrets -n kube-system | grep default-token | cut -d " " -f 1 | xargs kubectl get secrets -n kube-system -o yaml | grep "token:" | cut -d " " -f 4 | base64 -D && echo ""'
 alias kc=kubectl
@@ -78,22 +80,9 @@ alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
 alias firewall=iptlist
 #
-# Debian / Ubuntu
-#
-alias apt-get='sudo apt-get'
-alias updatey='sudo apt-get --yes'
-alias update='sudo apt-get update && sudo apt-get upgrade'
-#
 # Term Scripts
 #
 alias colordump=~/bin/colordump.sh
-#
-# Transmission
-#
-alias IP-update='~/bin/blocklist.sh'
-alias tsm-check='dwb http://localhost:9091/transmission/web'
-alias t='transmission-daemon && transmission-remote-cli'
-alias kT='killall transmission-daemon'
 #
 # Google Calendar
 #
@@ -109,11 +98,6 @@ alias httpserve='python -m SimpleHTTPServer'
 alias filemgr='nautilus --no-desktop'
 alias vimgo='nvim -u ~/.vimrc.go'
 alias weather='curl http://wttr.in/RALEIGH,NC'
-#
-# News and Music
-#
-alias news='newsbeuter'
-alias irc='weechat-curses'
 #
 # TMUX Powerline config
 #
@@ -149,8 +133,6 @@ alias lockit='i3lock -t -i ~/.i3/tile.png'
 alias jekyllserve='bundle exec jekyll serve'
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
-alias killpc="sudo pkill -9 parentalcontrolsd"
-alias cleanMeteor="git checkout .meteor/packages .meteor/versions"
 #
 # KB  pip install -U kb-manager
 #
@@ -166,4 +148,20 @@ export PATH=$PATH:/Users/gcorey/.cargo/bin
 # system info
 #
 alias sysinfo="inxi -Fxxxz"
-alias cleanorphans="pacman -Rsn $(pacman -Qdtq)"
+#
+# pacman 
+#
+alias pac_clean="sudo pacman -Rsn $(pacman -Qdtq)"
+alias pac_log="less /var/log/pacman.log"
+alias pac_broken="sudo pacman -Dk"
+alias pac_missing="sudo pacman -S -needed"
+alias pac_tree="pactree -c"
+alias pac_ls="pacman -Ql"
+alias pac_owner="pacman -Qo"
+alias pac_orphans="pacman -Qdt"
+alias pac_installed="pacman -Qe"
+alias pac_foreign="pacman -Qm"
+alias pac_search="pacman -Qs"
+alias pac_brokendeps="pacman -Qk"
+alias pac_ls_by_size="pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -hr"
+alias pac_rm="pacman -Rs"

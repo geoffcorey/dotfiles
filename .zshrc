@@ -1,54 +1,43 @@
-# .zshrc
-
-if [ -f /etc/zshrc]; then
-	echo "/etc/zshrc"
-	. /etc/zshrc
-fi
-
-# Source local .profile
-if [ -f ~/.zshrc.arch ]; then
-	echo "~/.zshrc.arch"
-	. ~/.zshrc.arch
-fi
-
-if [ -f ~/.zshrc.local ]; then
-	echo "~/.zshrc.local"
-	. ~/.zshrc.local
-fi
-
-# Source local .aliases
-if [ -f ~/.aliases ]; then
-	echo "~/.aliases"
-	. ~/.aliases
-fi
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export QT_QPA_PLATFORM=wayland
 # User specific aliases and functions
 echo "nvm"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/zsh_completion" ] && \. "$NVM_DIR/zsh_completion" # This loads nvm bash_completion
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export ZSH="$HOME/.oh-my-zsh"
+source $HOME/.aliases
+ZSH_THEME="agnoster"
 
-export PATH="$PATH:$HOME/bin"
+plugins=( 
+    git
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
 
-if [ -f /usr/local/etc/zsh_completion.d/git-completion.bash ]; then
-	echo "/usr/local/etc/zsh_completion.d/git-completion.zsh"
-	. /usr/local/etc/zsh_completion.d/git-completion.zsh
-fi
-[ -f ~/.kb_alias ] && source ~/.kb_alias
-if [[ -f /usr/bin/nvim ]]; then
-	alias vi=/usr/bin/nvim
-	alias vim=/usr/bin/nvim
-	export VISUAL=nvim
-	export EDITOR=${VISUAL}
-fi
-nvm use default
-export NODE_PATH=$NODE_PATH:$(npm root -g)
-# lvim
-export PATH=${PATH}:~/.local/bin
-export MANPAGER="sh -c ‘col -bx | bat -l man -p’"
-eval "$(starship init zsh)"
+source $ZSH/oh-my-zsh.sh
+
+# Check archlinux plugin commands here
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
+
+
+# Display Pokemon-colorscripts
+# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
+pokemon-colorscripts --no-title -s -r
+
+
+### From this line is for pywal-colors
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+#(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+#cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+#source ~/.cache/wal/colors-tty.sh
+
