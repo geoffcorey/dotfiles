@@ -1,7 +1,14 @@
 # Dotfiles for Arch
 
-Base hyprland install from [JaKooLit/Arch-Hyprland](https://github.com/JaKooLit/Arch-Hyprland)
+Currently using:
 
-Tweaks were made turning off swaylock timer and changing secret stations
+- KDE
+- tmux/tpm
+- AstroVim
+- Fish
 
-![](./bin/desktop.jpeg)
+but if I go with Hyprland I start here:
+
+[JaKooLit/Arch-Hyprland](https://github.com/JaKooLit/Arch-Hyprland)
+
+![](./bin/desktop.png)
