@@ -1,8 +1,8 @@
 [General]
-ColorScheme=GruvboxColors
+ColorScheme=BreezeDark
 
 [Icons]
-Theme=Vivid-Dark-Icons
+Theme=breeze-dark
 
 [KDE]
 widgetStyle=Breeze
