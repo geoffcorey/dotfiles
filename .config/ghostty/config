@@ -1,0 +1,78 @@
+theme = ayu 
+#cursor-color = #ffffff
+#background-opacity = 0.7
+#background-blur-radius = 20
+copy-on-select = true
+#adjust-underline-thickness = -2
+#adjust-cursor-thickness = -2
+#adjust-box-thickness = -2
+gtk-titlebar = true
+gtk-single-instance = true
+gtk-tabs-location = top 
+gtk-wide-tabs = false
+window-decoration = true
+quick-terminal-position = bottom
+quick-terminal-animation-duration = 0.0
+
+# Font
+#font-size = {{ if eq .chezmoi.os "linux" }}19{{ else if eq .chezmoi.os "darwin" }}24{{ end }}
+freetype-load-flags = false
+font-synthetic-style = false
+
+font-family = Iosevka Nerd Font Mono
+font-style = Condensed ExtraLight
+
+font-family-bold = Iosevka Nerd Font Mono
+font-style-bold = Condensed Medium
+
+font-family-italic = Iosevka Nerd Font Mono
+font-style-italic = Condensed ExtraLight Oblique
+
+font-family-bold-italic = Iosevka Nerd Font Mono
+font-style-bold-italic = Condensed Medium Oblique
+
+# MacOS specific stuff
+#macos-option-as-alt = true
+#macos-auto-secure-input = true
+#{{ if eq .chezmoi.os "darwin" -}}
+#keybind = ctrl+shift+c=copy_to_clipboard
+#keybind = ctrl+shift+v=paste_from_clipboard
+#{{- end }}
+
+# Resize splits
+keybind = ctrl+shift+h=resize_split:left,20
+keybind = ctrl+shift+k=resize_split:up,20
+keybind = ctrl+shift+j=resize_split:down,20
+keybind = ctrl+shift+l=resize_split:right,20
+
+keybind = shift+page_up=scroll_page_up
+keybind = shift+page_down=scroll_page_down
+
+keybind = ctrl+shift+plus=increase_font_size:1
+keybind = ctrl+shift+minus=decrease_font_size:1
+
+keybind = ctrl+shift+left=unbind
+keybind = ctrl+shift+right=unbind
+
+keybind = alt+b>|=new_split:right
+keybind = alt+b>-=new_split:down
+keybind = alt+b>h=goto_split:left
+keybind = alt+b>j=goto_split:top
+keybind = alt+b>k=goto_split:bottom
+keybind = alt+b>l=goto_split:right
+keybind = alt+b>x=close_surface
+keybind = alt+b>n=next_tab
+keybind = alt+b>p=previous_tab
+keybind = alt+b>c=new_tab
+keybind = alt+b>+one=goto_tab:1
+keybind = alt+b>+two=goto_tab:2
+keybind = alt+b>+three=goto_tab:3
+keybind = alt+b>+four=goto_tab:4
+keybind = alt+b>+five=goto_tab:5
+keybind = alt+b>+six=goto_tab:6
+keybind = alt+b>+seven=goto_tab:7
+keybind = alt+b>+eight=goto_tab:8
+keybind = alt+b>+nine=goto_tab:9
+keybind = alt+b>+q=toggle_quick_terminal
+
+# vim: ft=ghostty
